@@ -1,0 +1,119 @@
+body{
+ font-size: 16px;   
+ background-color:#051028;
+ font-family: "panno-text", sans-serif;
+ font-weight: 400;
+ font-style: normal;;
+}
+
+a{
+    color: #6bdcc0;
+}
+
+.login{
+    padding: 1rem 2rem;
+    border: #6bdcc0 1px solid;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.signup{
+    padding: 1rem 2rem;
+    background-color: #6bdcc0;
+    color: #051028;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.site-header{
+    padding: 1px 6%;
+    background-color:#051028;
+    display: flex;
+    color: #6bdcc0;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-container{
+    display: flex;
+    align-items: center;
+    gap:10px;
+    font-size: 2rem;
+    font-family: p22-flw-exhibition, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.logo{
+    max-width: 50px;
+}
+
+.menu{display: flex;
+margin: 0;
+padding: 0;}
+
+.menu-item{
+    margin: 0 10px;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* first section */
+.main-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 60vh;
+}
+
+.first-section{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 600px;
+    text-align: center;
+}
+
+.first-section h1{
+    color:#6bdcc0;
+    font-family: panno-text, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 4rem;
+}
+
+.first-section h2{
+    color:#ffffff;
+    text-transform: uppercase;
+    font-family: panno-text, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+/* section2 */
+
+.course-categories{
+    display: flex;
+    margin: auto;
+    gap: 10px;
+justify-content: center;
+max-width: 800px;
+flex-wrap: wrap;
+padding: 0;
+}
+
+.category-item{
+    display: flex;
+    padding: 2rem;
+    align-items: center;
+    gap: 5px;
+    border: #6bdcc0 1px solid;
+    border-radius: 8px;
+    color: #6bdcc0;
+    width: 24%;
+}
+.category-icon{
+    width: 2.5rem;
+}
