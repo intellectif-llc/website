@@ -3,58 +3,163 @@ body{
  background-color:#051028;
  font-family: "panno-text", sans-serif;
  font-weight: 400;
- font-style: normal;;
+ font-style: normal;
 }
 
 a{
     color: #6bdcc0;
 }
 
+/* start of menu */
+/* HAMBURGER MENU FOR MOBILE DEVICES */
+.menu-toggle{
+    position:absolute;
+    top:2rem;
+    right:1rem;
+    display: none!important;
+    width: 50px;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 40px;
+    display: flex;
+    background-color: transparent;
+    border-radius: 5px;
+}
+ .access-btns{
+    display: flex;
+    flex-wrap: wrap;
+    gap:0.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.access-btns a  {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+
+}
+
+.menu-toggle:hover{
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.menu-btn{
+    position:relative;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition:all .5s ease-in-out;
+    height: 100%;
+}
+
+.menu-btn_burger{
+    width: 22px;
+    height: 2px;
+    background-color: #ffffff;
+    border-radius: 6px;
+    transition:all .5s ease-in-out
+}
+
+.menu-btn_burger::before,
+.menu-btn_burger::after{
+content: '';
+position: absolute;
+width: 22px;
+height: 2px;
+background: #ffffff;
+border-radius: 6px;
+transition: all .5s ease-in-out;
+}
+
+.menu-btn_burger::before{
+    transform: translateY(-7px);
+}
+
+.menu-btn_burger::after{
+    transform: translateY(7px);
+}
+
+/* ANIMATION BURGER ICON */
+.menu-btn.open .menu-btn_burger{
+    transform: translateX(-30px);
+    background:transparent;
+}
+
+.menu-btn.open .menu-btn_burger::before{
+    transform: rotate(45deg) translate(21px, -21px);
+}
+
+.menu-btn.open .menu-btn_burger::after{
+    transform: rotate(-45deg) translate(21px, 21px);
+}
+/* end of menu */
+
 .login{
-    padding: 1rem 2rem;
+    padding: 1rem 1.5rem;
     border: #6bdcc0 1px solid;
     font-weight: bold;
-    margin-right: 5px;
+}
+
+.login:hover{
+  
+    border: #6bdcc0 1px solid;
+    color:#051028;
+    background-color: #6bdcc0;
 }
 
 .signup{
-    padding: 1rem 2rem;
+    padding: 1rem 1.5rem;
     background-color: #6bdcc0;
     color: #051028;
     font-weight: bold;
-    margin-left: 5px;
+}
+
+.signup:hover{
+    background-color: #051028;
+    color:#6bdcc0;
+    border: #6bdcc0 1px solid;
 }
 
 .site-header{
-    padding: 1px 6%;
+    padding: 2% 6%;
     background-color:#051028;
     display: flex;
     color: #6bdcc0;
     align-items: center;
     justify-content: space-between;
+    overflow: hidden;
 }
 
 .logo-container{
     display: flex;
     align-items: center;
     gap:10px;
-    font-size: 2rem;
+    font-size: 150%;
     font-family: p22-flw-exhibition, sans-serif;
     font-weight: 700;
     font-style: normal;
 }
 
+
 .logo{
     max-width: 50px;
 }
 
-.menu{display: flex;
+.menu{
 margin: 0;
-padding: 0;}
+padding: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+}
 
 .menu-item{
     margin: 0 10px;
-    padding: 1rem 2rem;
+    display: flex;
+    gap:3%;
     cursor: pointer;
     font-size: 20px;
 }
@@ -74,6 +179,8 @@ padding: 0;}
     justify-content: center;
     max-width: 600px;
     text-align: center;
+    gap:5px;
+    padding:3rem;
 }
 
 .first-section h1{
@@ -81,7 +188,8 @@ padding: 0;}
     font-family: panno-text, sans-serif;
     font-weight: 600;
     font-style: normal;
-    font-size: 4rem;
+    font-size: 5rem;
+    margin: 0;
 }
 
 .first-section h2{
@@ -90,16 +198,21 @@ padding: 0;}
     font-family: panno-text, sans-serif;
     font-weight: 600;
     font-style: normal;
+    margin: 0;
 }
 
 /* section2 */
+
+.second-section{
+    padding:2rem;
+}
 
 .course-categories{
     display: flex;
     margin: auto;
     gap: 10px;
 justify-content: center;
-max-width: 800px;
+max-width: 900px;
 flex-wrap: wrap;
 padding: 0;
 }
@@ -113,7 +226,115 @@ padding: 0;
     border-radius: 8px;
     color: #6bdcc0;
     width: 24%;
+    height: 3rem;
+    justify-content: space-around;
 }
+
+.img-txt-group{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
 .category-icon{
     width: 2.5rem;
+    margin: 0;
+}
+
+.section-three{
+    font-family: panno-text, sans-serif;
+    font-weight: 600;
+    font-size: 3rem;
+    text-align: center;
+    color: #ffffff;
+    padding: 2rem;
+}
+
+@media (max-width: 700px) {
+    .category-item{
+        width: 60%;
+    }
+
+    .first-section h1{
+        color:#6bdcc0;
+        font-family: panno-text, sans-serif;
+        font-weight: 600;
+        font-size: 3rem;
+    }
+
+    .first-section h2{
+        font-family: panno-text, sans-serif;
+        font-weight: 600;
+        font-size: 1.2rem;
+    }
+
+    .logo-container{
+        font-size: 1.2rem;
+        font-family: p22-flw-exhibition, sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .menu-item{
+        display: none;
+        flex-direction: row;
+        text-align: center;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.6s ease-in-out, opacity 1s ease-in-out;
+        opacity: 0;
+    }
+
+    .access-btns{
+        display: none;
+    }
+
+    .menu-toggle{
+        top:1.5rem;
+        display: flex!important;
+    }
+
+    .menu{
+        width: 100%;
+        display: none;
+        background-color: var(--primary-bg-color);
+        box-shadow: 0px 3px 8px -4px var(--dark-text-color);
+    }
+
+    .menu.active{
+        width: 100%;
+        display: flex;
+        transition: all 1s ease-in-out;
+        padding: 0;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 1rem;
+    }
+
+    .menu-item.active{
+        display: flex;
+        max-height: 300px; 
+        opacity: 1;
+        width: 100%;
+        padding:3px;
+        margin: 0;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .menu-item.active a{
+        text-align: center;
+    }
+
+    .site-header{
+        flex-direction: column;
+        margin:0px;
+        align-items: center;
+        justify-content: center;
+        z-index: 5;
+        position: relative;
+    }
 }

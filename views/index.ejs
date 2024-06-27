@@ -3,6 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
+        <!-- Meta Description -->
+        <meta name="description"
+        content="Learn the course you need in the language you speak and expand your career. We also offer software development solutions for businesses">
+
+    <!-- Other Meta Tags -->
+    <meta name="keywords"
+        content="frontend development, backend development, learn aws cloud services, learn digital marketing, learn Spanish, learn mobile app development">
+    <meta name="author" content="Intellectif">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Intellectif</title>
     <link rel="stylesheet" href="/css/normalize.css">
@@ -16,16 +24,23 @@
             <img class="logo" src="/pics/logo.png" alt="logo">
             <p>Intellectif</p>
         </div>
+
+        <div class="menu-toggle">
+            <div class="menu-btn">
+                <div class="menu-btn_burger"></div>
+            </div>
+        </div>
+
         <div>
             <ul class="menu">
-                <li class="menu-item"><a href="#">Learn Software development</a></li>
-                <li class="menu-item"><a href="#">Learn Spanish</a></li>
-                <li class="menu-item"><a href="#">Solutions</a></li>
+                <li class="menu-item"><a style="text-align: center;" href="/">Learn Software development</a></li>
+                <li class="menu-item"><a style="text-align: center;" href="privacy">privacidad</a></li>
+                <li class="menu-item"><a style="text-align: center;" href="solutions">Solutions</a></li>
             </ul>
         </div>
-        <div>
-            <a href=""><span class="login">Login</span></a>
-            <a href=""><span class="signup">Sign up</span></a>
+        <div class="access-btns">
+            <a href="https://intellectif.auth.us-east-1.amazoncognito.com/login?client_id=6dkv8k59lmfid0erj0qa93uas7&response_type=code&scope=email+openid+phone&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fdashboard"><span class="login">Login</span></a>
+            <a href="https://intellectif.auth.us-east-1.amazoncognito.com/signup?client_id=6dkv8k59lmfid0erj0qa93uas7&response_type=code&scope=email+openid+phone&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fdashboard"><span class="signup">Sign up</span></a>
         </div>
     </header>
 
@@ -38,30 +53,51 @@
 
         <section class="second-section">
             <ul class="course-categories">
-                <li class="category-item">
+                <li class="category-item"><div class="img-txt-group">
                     <img class="category-icon" src="/pics/web-development.png" alt="">
-                    <span>Frontend Development</span>
+                    <span>Frontend Development</span></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" fill="white" width="12" height="12">
+                        <path
+                            d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
+                    </svg>
                 </li>
-                <li class="category-item">
+                <li class="category-item"><div class="img-txt-group">
                     <img class="category-icon" src="/pics/backend-dev.png" alt="">
-                    <span>Backend Development</span>
+                    <span>Backend Development</span></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" fill="white" width="12" height="12">
+                        <path
+                            d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
+                    </svg>
                 </li>
-                <li class="category-item">
+                <li class="category-item"><div class="img-txt-group">
                     <img class="category-icon" src="/pics/aws-cloud.png" alt="">
-                    <span>AWS Cloud Services</span>
+                    <span>AWS Cloud Services</span></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" fill="white" width="12" height="12">
+                        <path
+                            d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
+                    </svg>
                 </li>
                 <!-- second round -->
-                <li class="category-item">
+                <li class="category-item"><div class="img-txt-group">
                     <img class="category-icon" src="/pics/digital-marketing.png" alt="">
-                    <span>Digital Marketing</span>
+                    <span>Digital Marketing</span></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" fill="white" width="12" height="12">
+                        <path
+                            d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
+                    </svg>
                 </li>
-                <li class="category-item">
+                <li class="category-item"><div class="img-txt-group">
                     <img class="category-icon" src="/pics/mobile-development.png" alt="">
-                    <span>Mobile App Development</span>
+                    <span>Mobile App Development</span></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" fill="white" width="12" height="12">
+                        <path
+                            d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
+                    </svg>
                 </li>
                 <li class="category-item">
+                    <div class="img-txt-group">
                     <img class="category-icon" src="/pics/languages.png" alt="">
-                    <span>Learn Spanish</span>
+                    <span>Learn Spanish</span></div>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" fill="white" width="12" height="12">
                         <path
                             d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
@@ -71,7 +107,40 @@
 
             </ul>
         </section>
+
+        <section class="section-three">Coming Soon ...</section>
     </section>
+
+    <script>
+  const toggleButton = document.getElementsByClassName('menu-toggle')[0];
+const menuItems = document.getElementsByClassName('menu-item');
+const menuContainer = document.getElementsByClassName('menu')[0];
+
+toggleButton.addEventListener('click', () => {
+    for (let i = 0; i < menuItems.length; i++) {
+        menuItems[i].classList.toggle('active');
+    }
+    menuContainer.classList.toggle('active');
+});
+
+/* HAMBURGER ICON ANIMATION */
+const menuBtn = document.querySelector('.menu-btn');
+let menuOpen = false;
+
+if (menuBtn) {
+    menuBtn.addEventListener('click', ()=>{
+        if (!menuOpen){
+            menuBtn.classList.add('open');
+            menuOpen = true;
+        } else {
+            menuBtn.classList.remove('open');
+            menuOpen = false;
+        }
+    });
+}
+
+    </script>
+
 </body>
 
 </html>
