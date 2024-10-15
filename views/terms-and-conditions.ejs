@@ -3,44 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy</title>
+    <title>Terms and conditions</title>
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="https://use.typekit.net/rdx6buo.css">
 </head>
 <body>
-    <header class="site-header">
-        <div class="logo-container">
-            <img class="logo" src="/pics/logo.png" alt="logo">
-            <p>Intellectif</p>
-        </div>
-
-        <div class="menu-toggle">
-            <div class="menu-btn">
-                <div class="menu-btn_burger"></div>
-            </div>
-        </div>
-
-        <div>
-            <ul class="menu">
-                <li class="menu-item"><a style="text-align: center;" href="#">Learn Software development</a></li>
-                <li class="menu-item"><a style="text-align: center;" href="#">Learn Spanish</a></li>
-                <li class="menu-item"><a style="text-align: center;" href="#">Solutions</a></li>
-            </ul>
-        </div>
-        <div class="access-btns">
-            <a href="https://intellectif.auth.us-east-1.amazoncognito.com/login?client_id=6dkv8k59lmfid0erj0qa93uas7&response_type=code&scope=email+openid+phone&redirect_uri=https%3A%2F%2Fintellectif.com%2Fdashboard"><span class="login">Login</span></a>
-            <a href="https://intellectif.auth.us-east-1.amazoncognito.com/signup?client_id=6dkv8k59lmfid0erj0qa93uas7&response_type=code&scope=email+openid+phone&redirect_uri=https%3A%2F%2Fintellectif.com%2Fdashboard"><span class="signup">Sign up</span></a>
-        </div>
-    </header>
+<%- include('partials/header') %>
 
     <section class="main-container">
 
-        <section class="first-section">
-            <h1>Expand your career</h1>
-            <h2>Find the course you need in the language you speak</h2>
-        </section>        
+<section id="terms-and-conditions" class="terms-conditions-container">
+    <h1 class="terms-title">Terms and Conditions</h1>
+
+    <p class="terms-intro">
+        Welcome to Intellectif! These Terms and Conditions outline the rules and regulations for the use of Intellectif's website, products, and services.
+        By accessing or using our services, you accept these terms in full. If you disagree with these terms, please refrain from using our services.
+    </p>
+
+    <section class="section-definitions">
+        <h2 class="terms-subtitle">1. Definitions</h2>
+        <ul class="terms-list">
+            <li><strong>"Company"</strong> refers to Intellectif LLC, a registered business operating from Latin America with a virtual office in Miami, FL.</li>
+            <li><strong>"Client"</strong> refers to any person or entity using or engaging with Intellectif's services.</li>
+            <li><strong>"Services"</strong> refers to all IT-related and business consulting services offered by Intellectif, including but not limited to Web Development, Backend Development, AWS Cloud Consulting, Mobile App Development, Digital Marketing, and AI systems implementation.</li>
+        </ul>
     </section>
 
+    <section class="section-service-agreement">
+        <h2 class="terms-subtitle">2. Service Agreement</h2>
+        <p class="terms-text">
+            Intellectif agrees to provide the services as detailed in the agreed proposal or contract. The client agrees to provide all necessary information and resources required to complete the services. Any delays caused by the client may result in the extension of agreed timelines.
+        </p>
+        <p class="terms-text">
+            Changes to the scope of services after project commencement may result in adjustments to costs and delivery timelines. All changes will be communicated and agreed upon in writing before proceeding.
+        </p>
+    </section>
+
+    <section class="section-payment-terms">
+        <h2 class="terms-subtitle">3. Payment Terms</h2>
+        <p class="terms-text">
+            Payment for services must be made according to the agreed pricing plan outlined in the contract or proposal. Intellectif offers flexible payment models, including fixed-price projects, hourly rates, and retainer agreements. Invoices will be issued as per the terms set forth in the contract.
+        </p>
+        <p class="terms-text">
+            Late payments may incur a 5% late fee if not settled within 15 days of the due date. We reserve the right to suspend or terminate services in cases of non-payment.
+        </p>
+        <p class="terms-text">
+            For long-term projects, we may require upfront payment or payment in milestones, which will be outlined in the project proposal.
+        </p>
+    </section>
+
+    <section class="section-client-ownership">
+        <h2 class="terms-subtitle">4. Ownership and Intellectual Property</h2>
+        <p class="terms-text">
+            Upon full payment for the completed project, all intellectual property rights, including source code, documentation, and deliverables, will be transferred to the client. Intellectif retains the right to display the work in its portfolio unless otherwise agreed in writing.
+        </p>
+        <p class="terms-text">
+            Until full payment is made, Intellectif retains ownership of all intellectual property related to the services provided.
+        </p>
+    </section>
+
+    <section class="section-confidentiality">
+        <h2 class="terms-subtitle">5. Confidentiality</h2>
+        <p class="terms-text">
+            Both parties agree to maintain strict confidentiality concerning any proprietary information, trade secrets, or sensitive business data disclosed during the course of the project. Confidential information will not be shared with third parties without prior written consent.
+        </p>
+    </section>
+
+    <section class="section-data-privacy">
+        <h2 class="terms-subtitle">6. Data Privacy</h2>
+        <p class="terms-text">
+            Intellectif is committed to safeguarding your data. We comply with all applicable data privacy laws and use secure practices to protect your sensitive business information. For more details, please refer to our Privacy Policy.
+        </p>
+    </section>
+
+    <section class="section-service-limits">
+        <h2 class="terms-subtitle">7. Limitation of Liability</h2>
+        <p class="terms-text">
+            While we strive to deliver the highest quality services, Intellectif is not liable for any indirect, incidental, or consequential damages resulting from the use of our services, including but not limited to lost profits, data loss, or business interruptions.
+        </p>
+        <p class="terms-text">
+            Our maximum liability is limited to the amount paid by the client for the services provided during the twelve (12) months preceding the incident that gives rise to the claim.
+        </p>
+    </section>
+
+    <section class="section-termination">
+        <h2 class="terms-subtitle">8. Termination</h2>
+        <p class="terms-text">
+            Either party may terminate the agreement by providing written notice. Intellectif reserves the right to terminate services immediately if the client breaches any of these terms. In the event of termination, the client will be invoiced for any work completed up to the termination date.
+        </p>
+    </section>
+
+    <section class="section-governing-law">
+        <h2 class="terms-subtitle">9. Governing Law</h2>
+        <p class="terms-text">
+            These Terms and Conditions shall be governed by and construed in accordance with the laws of the United States. Any disputes arising from this agreement will be resolved in the courts located in Miami, FL.
+        </p>
+    </section>
+
+    <section class="section-amendments">
+        <h2 class="terms-subtitle">10. Amendments</h2>
+        <p class="terms-text">
+            Intellectif reserves the right to modify these Terms and Conditions at any time. Clients will be notified of any significant changes that may impact their use of our services. Continued use of our services following such changes constitutes acceptance of the revised terms.
+        </p>
+    </section>
+
+    <section class="section-contact">
+        <h2 class="terms-subtitle">11. Contact Us</h2>
+        <p class="terms-text">
+            If you have any questions about these Terms and Conditions, please contact us at <a href="mailto:contact@intellectif.com">contact@intellectif.com</a>.
+        </p>
+    </section>
+</section>
+     
+    </section>
+<script src="/js/main.js"></script>
 </body>
 </html>

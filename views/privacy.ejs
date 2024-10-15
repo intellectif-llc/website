@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="https://use.typekit.net/rdx6buo.css">
     <style>
-        p{
+        .main-container p{
          color:#ffffff;   
         }
-        li{
+        .main-container li{
          color:#ffffff;   
         }
         ul{padding: 0;}
@@ -19,35 +19,12 @@
     </style>
 </head>
 <body>
-    <header class="site-header">
-        <div class="logo-container">
-            <img class="logo" src="/pics/logo.png" alt="logo">
-            <p>Intellectif</p>
-        </div>
-
-        <div class="menu-toggle">
-            <div class="menu-btn">
-                <div class="menu-btn_burger"></div>
-            </div>
-        </div>
-
-        <div>
-            <ul class="menu">
-                <li class="menu-item"><a style="text-align: center;" href="/">Learn Software development</a></li>
-                <li class="menu-item"><a style="text-align: center;" href="privacy">privacidad</a></li>
-                <li class="menu-item"><a style="text-align: center;" href="solutions">Solutions</a></li>
-            </ul>
-        </div>
-        <div class="access-btns">
-            <a href="https://intellectif.auth.us-east-1.amazoncognito.com/login?client_id=6dkv8k59lmfid0erj0qa93uas7&response_type=code&scope=email+openid+phone&redirect_uri=https%3A%2F%2Fintellectif.com%2Fdashboard"><span class="login">Login</span></a>
-            <a href="https://intellectif.auth.us-east-1.amazoncognito.com/signup?client_id=6dkv8k59lmfid0erj0qa93uas7&response_type=code&scope=email+openid+phone&redirect_uri=https%3A%2F%2Fintellectif.com%2Fdashboard"><span class="signup">Sign up</span></a>
-        </div>
-    </header>
+<%- include('partials/header') %>
 
     <section class="main-container">
 
         <section class="first-section">
-            <h1>Privacy policy</h1>
+            <h1 id="privacy-policy">Privacy policy</h1>
             <p><strong>Introduction</strong></p>
             <p>At Intellectif LLC, we are committed to safeguarding your privacy. This Privacy Policy outlines the types of information we collect from our users, how we use this information, and the measures we take to ensure your data is protected. By using our website, you consent to the data practices described in this policy.</p>
             
@@ -75,6 +52,6 @@
             <p>If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at <a href="mailto:[contact@intellectif.com]">contact@intellectif.com</a>.</p>
                     </section>        
     </section>
-
+<script src="/js/main.js"></script>
 </body>
 </html>
