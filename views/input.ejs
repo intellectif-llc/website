@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact</title>
+    <!-- Include your CSS files -->
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="shortcut icon" href="/pics/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://use.typekit.net/rdx6buo.css" />
+    <style>
+        .contact-form {
+            background-color: #ffffff;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        .form-group {
+            position: relative;
+            margin: 20px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 12px 10px;
+            border: 2px solid #051028;
+            outline: none;
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .form-group label {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            transition: all 0.3s ease;
+            color: #051028;
+            pointer-events: none;
+            background: #ffffff;
+            /* Added to make label background consistent */
+            padding: 0 4px;
+            /* Adjust padding for a better look */
+        }
+
+        .form-group input:focus+label,
+        .form-group input:not(:placeholder-shown)+label,
+        .form-group textarea:focus+label,
+        .form-group textarea:not(:placeholder-shown)+label {
+            top: 0px;
+            font-size: 14px;
+            background: #ffffff;
+            padding: 0 4px;
+            color: #051028;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+            /* Added gap to improve spacing between form groups */
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: #051028;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('partials/header') %>
+        <section style="padding-top: 50px" class="contact-form-section">
+            <h1 class="contact-form-heading">Contact Us</h1>
+            <form class="contact-form" action="/contact" method="post">
+                <!-- First Name and Last Name -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <input placeholder=" " type="text" name="firstName" id="firstName" required />
+                        <label for="firstName">First Name *</label>
+                    </div>
+                    <div class="form-group">
+                        <input placeholder=" " type="text" name="lastName" id="lastName" required />
+                        <label for="lastName">Last Name *</label>
+                    </div>
+                </div>
+
+                <!-- Email Address and Phone Number -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <input placeholder=" " type="email" name="emailAddress" id="emailAddress" required />
+                        <label for="emailAddress">Email Address *</label>
+                    </div>
+                    <div class="form-group">
+                        <input placeholder=" " type="tel" name="phoneNumber" id="phoneNumber" />
+                        <label for="phoneNumber">Phone Number</label>
+                    </div>
+                </div>
+
+                <!-- Company Name -->
+                <div class="form-group">
+                    <input placeholder=" " type="text" name="companyName" id="companyName" />
+                    <label for="companyName">Company Name</label>
+                </div>
+
+                <!-- Subject -->
+                <div class="form-group">
+                    <input placeholder=" " type="text" name="subject" id="subject" required />
+                    <label for="subject">Subject *</label>
+                </div>
+
+                <!-- Message -->
+                <div class="form-group">
+                    <textarea class="floating-input" placeholder=" " rows="4" name="message" id="message"
+                        required></textarea>
+                    <label for="message">How can we help you?</label>
+                </div>
+
+                <!-- Checkboxes -->
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" name="optIn" />
+                        I agree to receive marketing emails.
+                    </label>
+                </div>
+
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" name="consentGiven" required />
+                        I agree to the
+                        <a href="/terms-and-conditions">terms and conditions</a> and
+                        <a href="/privacy">privacy policy</a>.
+                    </label>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+        <%- include('partials/footer') %>
+
+            <script>
+                // No change needed in JavaScript for this use case.
+                const inputs = document.querySelectorAll(".floating-input");
+
+                inputs.forEach((input) => {
+                    input.addEventListener("blur", function () {
+                        if (this.value === "") {
+                            this.classList.remove("has-value");
+                        }
+                    });
+                });
+            </script>
+</body>
+
+</html>

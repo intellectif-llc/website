@@ -8,15 +8,16 @@
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="shortcut icon" href="/pics/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://use.typekit.net/rdx6buo.css">
-    <title>Server error</title>
+    <title>Contact</title>
 </head>
 
 <body>
-    <section style="height: 70vh; color: #6bddc1;" class="first-section">
-        <h1>500 - Server error</h1>
-        <p>Contact the page administrator.</p>
-        <a href="/">Go to Home</a>
-    </section>
+    <%- include('partials/header') %>
+        <section style="min-height: 70vh; color:#6bddc1" class="first-section thank-you-page">
+            <h1>Thank You!</h1>
+            <p>Your message has been received. We'll get back to you shortly.</p>
+        </section>
+        <%- include('partials/footer') %>
 </body>
 
 </html>

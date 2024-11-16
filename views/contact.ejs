@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact</title>
+    <!-- Include your CSS files -->
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="shortcut icon" href="/pics/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://use.typekit.net/rdx6buo.css" />
+    <!-- Include intl-tel-input CSS -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css" />
+    <style>
+        /* Existing styles remain the same */
+
+        .contact-form {
+            background-color: #ffffff;
+            margin: 0 auto;
+            border-radius: 5px;
+            padding: 1rem;
+
+        }
+
+        .form-group {
+            position: relative;
+            margin: 20px;
+            flex: 1;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 12px 10px;
+            border: 2px solid #9fa8bc;
+            outline: none;
+            width: 100%;
+            border-radius: 5px;
+            resize: none;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #7bd2bd;
+        }
+
+        .form-group label {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            transition: all 0.3s ease;
+            color: #051028;
+            pointer-events: none;
+            background: #ffffff;
+            padding: 0 4px;
+        }
+
+        .phone-input-container label {
+            left: 50px;
+        }
+
+        .form-group input:focus+label,
+        .form-group input:not(:placeholder-shown)+label,
+        .form-group textarea:focus+label,
+        .form-group textarea:not(:placeholder-shown)+label {
+            top: 0px;
+            font-size: 14px;
+            background: #ffffff;
+            padding: 0 4px;
+            color: #051028;
+        }
+
+        .phone-input-container input:focus+label,
+        .phone-input-container input:not(:placeholder-shown)+label {
+            top: 0px;
+            font-size: 14px;
+            background: #ffffff;
+            padding: 0 4px;
+            color: #051028;
+        }
+
+        .phone-input-container {
+            position: relative;
+            /* width: 100%; */
+        }
+
+        /* Force consistency between the "phoneNumber" and other input sizes */
+        .phone-input-container .iti {
+            width: 100%;
+        }
+
+        /* Adjust padding-left on phone input to avoid dropdown overlap */
+        .phone-input-container input[type="tel"] {
+            padding-left: 50px;
+        }
+
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .thank-you-page {
+            color: #8defd7;
+        }
+
+        .contact-form-container h1,
+        .contact-form-container p {
+            color: #7bd2bd;
+        }
+
+        .checkbox-group {
+            display: flex;
+            padding-left: 20px;
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: #051028;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .form-submission-group {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .submit-btn {
+            margin-right: 20px;
+            background-color: #051028;
+            color: #7bd2bd;
+            padding: 12px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: scale(0.9);
+        }
+
+        .space {
+            margin: 0 5px;
+        }
+
+        .contact-form-container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        input:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0px 1000px white inset;
+            /* Set to your desired background color */
+            box-shadow: 0 0 0px 1000px white inset;
+            -webkit-text-fill-color: black;
+            /* Set to your desired text color */
+        }
+    </style>
+
+</head>
+
+<body>
+    <%- include('partials/header') %>
+        <section style="padding-top: 100px" class="contact-form-section">
+            <div class="contact-form-container">
+                <h1 class="contact-form-heading">Contact Us</h1>
+                <p>Feel free to email us at <a style="color: #ffffff;"
+                        href="mailto:contact@intellectif.com">contact@intellectif.com</a> or
+                    simply fill out the form below with details about your requirements.
+                </p>
+
+                <form class="contact-form" action="/contact" method="post">
+                    <!-- First Name and Company Name -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input placeholder=" " type="text" name="fullName" id="fullName" required />
+                            <label for="fullName">Your Full Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input placeholder=" " type="text" name="companyName" id="companyName" />
+                            <label for="companyName">Company Name (optional)</label>
+                        </div>
+                    </div>
+
+                    <!-- Email Address and Phone Number -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input placeholder=" " type="email" name="emailAddress" id="emailAddress" required />
+                            <label for="emailAddress">Email Address</label>
+                        </div>
+                        <div class="form-group phone-input-container">
+                            <input placeholder=" " type="tel" name="phoneNumber" id="phoneNumber" required />
+                            <label id="phoneLabel" for="phoneNumber">Phone Number</label>
+                        </div>
+                    </div>
+
+                    <!-- Subject -->
+                    <div class="form-group">
+                        <input placeholder=" " type="text" name="subject" id="subject" required />
+                        <label for="subject">Subject</label>
+                    </div>
+
+                    <!-- Message -->
+                    <div class="form-group">
+                        <textarea class="floating-input" placeholder=" " rows="4" name="message" id="message"
+                            required></textarea>
+                        <label for="message">How can we help you?</label>
+                    </div>
+
+                    <!-- Checkboxes -->
+                    <div class="form-submission-group">
+                        <div class="form-closing-group">
+                            <div class="checkbox-group">
+                                <label>
+                                    <input type="checkbox" name="optIn" />
+                                    I agree to receive emails about your services.
+                                </label>
+                            </div>
+
+                            <div class="checkbox-group">
+                                <label>
+                                    <input type="checkbox" name="consentGiven" required />
+                                    I agree to the &nbsp;
+                                    <a href="/terms-and-conditions">terms and conditions</a>
+                                    <span class="space">and</span>
+                                    <a href="/privacy">privacy policy</a>.
+                                </label>
+                            </div>
+                        </div>
+                        <button class="submit-btn" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <%- include('partials/footer') %>
+
+            <!-- Include intl-tel-input JS -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+
+            <script>
+                // Initialize intl-tel-input for phone number
+                const phoneInputField = document.querySelector("#phoneNumber");
+                let phoneInput;
+
+                fetch('/get-country')
+                    .then(response => response.json())
+                    .then(data => {
+                        phoneInput = window.intlTelInput(phoneInputField, {
+                            initialCountry: data.countryCode.toLowerCase(),
+                            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error fetching country code:', error);
+                        phoneInput = window.intlTelInput(phoneInputField, {
+                            initialCountry: "us",
+                            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
+                        });
+                    });
+
+                // Before form submission, update the phoneNumber field with the full international number including the country code
+                document.querySelector(".contact-form").addEventListener("submit", function (e) {
+                    if (phoneInput && phoneInput.isValidNumber()) {
+                        // Get the full phone number in international format
+                        const fullPhoneNumber = phoneInput.getNumber();
+                        phoneInputField.value = fullPhoneNumber; // Update the phoneNumber input field with the full number
+                    } else {
+                        e.preventDefault(); // Prevent form submission if the phone number is invalid
+                        alert('Please enter a valid phone number.');
+                    }
+                });
+
+                // Handling label movement for phone input explicitly
+                phoneInputField.addEventListener('focus', function () {
+                    const label = document.querySelector("label[for='phoneNumber']");
+                    label.style.top = '0px';
+                    label.style.left = '10px';
+                    label.style.fontSize = '14px';
+                    label.style.background = '#ffffff';
+                    label.style.padding = '0 4px';
+                    label.style.color = '#051028';
+                });
+
+                phoneInputField.addEventListener('blur', function () {
+                    if (!this.value) {
+                        const label = document.querySelector("label[for='phoneNumber']");
+                        label.style.top = '50%';
+                        label.style.left = '50px';
+                        label.style.fontSize = 'inherit';
+                        label.style.transform = 'translateY(-50%)';
+                    }
+                });
+            </script>
+            <script src="/js/main.js"></script>
+</body>
+
+</html>

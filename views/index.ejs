@@ -30,7 +30,7 @@
             
             <h2>Our tech solutions will give your business a competitive edge!</h2>
             
-            <button id="call-to-action">Get a free consulation</button>
+            <a href="https://wa.me/17272311599" target="_blank" class="btn" id="call-to-action">Get a free consulation</a>
         </section>
 
         <section class="second-section">
@@ -91,7 +91,50 @@
             </ul>
         </section>
 
-        <section class="third-section">
+<section class="third-section">
+    <h2 id="tech-stack">Our tech stack</h2>
+    <div class="tech-stack-list">
+        <div class="tech-stack-slider">
+            <!-- Original images -->
+            <img class="tech-stack" src="../pics/tech-stack/aws.png" alt="aws">
+            <img class="tech-stack" src="../pics/tech-stack/react.png" alt="react">
+            <img class="tech-stack" src="../pics/tech-stack/node.png" alt="node">
+            <img class="tech-stack" src="../pics/tech-stack/dynamo.png" alt="dynamodb">
+            <img class="tech-stack" src="../pics/tech-stack/meta.png" alt="meta">
+            <img class="tech-stack" src="../pics/tech-stack/mysql.png" alt="mysql">
+            <img class="tech-stack" src="../pics/tech-stack/python.png" alt="python">
+            <img class="tech-stack" src="../pics/tech-stack/mongodb.png" alt="mongodb">
+            <img class="tech-stack" src="../pics/tech-stack/flutter.png" alt="flutter">
+            <img class="tech-stack" src="../pics/tech-stack/tailwind.png" alt="tailwind">
+            <img class="tech-stack" src="../pics/tech-stack/nextjs.png" alt="nextjs">
+            <img class="tech-stack" src="../pics/tech-stack/typescript.png" alt="typescript">
+            <img class="tech-stack" src="../pics/tech-stack/docker.png" alt="docker">
+            <img class="tech-stack" src="../pics/tech-stack/wordpress.png" alt="wordpress">
+            <img class="tech-stack" src="../pics/tech-stack/deno.png" alt="deno">
+            <img class="tech-stack" src="../pics/tech-stack/postgresql.png" alt="postgresql">
+            <!-- Duplicate images -->
+            <img class="tech-stack" src="../pics/tech-stack/aws.png" alt="aws">
+            <img class="tech-stack" src="../pics/tech-stack/react.png" alt="react">
+            <img class="tech-stack" src="../pics/tech-stack/node.png" alt="node">
+            <img class="tech-stack" src="../pics/tech-stack/dynamo.png" alt="dynamodb">
+            <img class="tech-stack" src="../pics/tech-stack/meta.png" alt="meta">
+            <img class="tech-stack" src="../pics/tech-stack/mysql.png" alt="mysql">
+            <img class="tech-stack" src="../pics/tech-stack/python.png" alt="python">
+            <img class="tech-stack" src="../pics/tech-stack/mongodb.png" alt="mongodb">
+            <img class="tech-stack" src="../pics/tech-stack/flutter.png" alt="flutter">
+            <img class="tech-stack" src="../pics/tech-stack/tailwind.png" alt="tailwind">
+            <img class="tech-stack" src="../pics/tech-stack/nextjs.png" alt="nextjs">
+            <img class="tech-stack" src="../pics/tech-stack/typescript.png" alt="typescript">
+            <img class="tech-stack" src="../pics/tech-stack/docker.png" alt="docker">
+            <img class="tech-stack" src="../pics/tech-stack/wordpress.png" alt="wordpress">
+            <img class="tech-stack" src="../pics/tech-stack/deno.png" alt="deno">
+            <img class="tech-stack" src="../pics/tech-stack/postgresql.png" alt="postgresql">        
+        </div>
+    </div>
+</section>
+
+
+        <section class="fourth-section">
             <h2 id="smooth-process">How We Bring Your Vision to Life in 4 Easy Steps</h2>
             <div class="process-description-container">
                 <div class="item">
@@ -659,12 +702,12 @@ components.forEach((id) => {
 });
 
 // Define the heading IDs you want to animate
-const headings = ['#service-list', '#smooth-process','#faqs'];
+const headings = ['#service-list', '#smooth-process','#faqs','#tech-stack'];
 
 // Loop through each heading and apply the animation separately
 headings.forEach((heading) => {
   gsap.from(heading, {
-    x: -100, // Slide in from the left
+    y: -100, // Slide in from the left
     scale: 0.8, // Add a slight scaling effect
     opacity: 0, // Fade in from 0 opacity
     duration: 1.8, // Animation duration
@@ -734,6 +777,45 @@ accordionGroups.forEach(group => {
     }
   });
 });
+
+//Dynamically calculate width
+document.addEventListener('DOMContentLoaded', function() {
+    const slider = document.querySelector('.tech-stack-slider');
+    const images = slider.querySelectorAll('.tech-stack');
+    
+    // Clone the images and append them to the slider
+    images.forEach(img => {
+        const clone = img.cloneNode(true);
+        slider.appendChild(clone);
+    });
+
+    // Calculate the total width of all images
+    let totalWidth = 0;
+    slider.querySelectorAll('.tech-stack').forEach(img => {
+        totalWidth += img.offsetWidth + parseInt(window.getComputedStyle(img).marginLeft) + 
+                      parseInt(window.getComputedStyle(img).marginRight);
+    });
+
+    // Set the width of the slider
+    slider.style.width = `${totalWidth / 2}px`;
+
+    // Pause animation on hover
+    slider.addEventListener('mouseenter', () => {
+        slider.style.animationPlayState = 'paused';
+    });
+
+    slider.addEventListener('mouseleave', () => {
+        slider.style.animationPlayState = 'running';
+    });
+
+    // Reset animation when it completes
+    slider.addEventListener('animationiteration', () => {
+        slider.style.animation = 'none';
+        slider.offsetHeight; // Trigger reflow
+        slider.style.animation = null;
+    });
+});
+
 
     </script>
 
