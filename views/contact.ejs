@@ -14,13 +14,22 @@
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css" />
     <style>
-        /* Existing styles remain the same */
+        .contact-form-section {
+            min-height: 75vh;
+        }
+
+        .contact-form-container {
+            display: flex;
+            flex-direction: column;
+
+        }
 
         .contact-form {
             background-color: #ffffff;
-            margin: 0 auto;
+            margin: 3rem auto;
             border-radius: 5px;
             padding: 1rem;
+            width: 95%;
 
         }
 
@@ -122,6 +131,7 @@
             align-items: center;
             font-size: 14px;
             color: #051028;
+            margin: 4px 0;
         }
 
         .checkbox-group input[type="checkbox"] {

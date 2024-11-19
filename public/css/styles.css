@@ -249,9 +249,10 @@ a,
 }
 
 #call-to-action {
-    padding: 1.2rem 0.8rem;
+    padding: 1.5rem 1rem;
     color: #6bdcc0;
     font-size: 1.2rem;
+    font-weight: 700;
     background: transparent;
     border: 1px #6bdcc0 solid;
     border-radius: 5px;
@@ -261,6 +262,7 @@ a,
     transition: all 0.5s;
     position: relative;
     overflow: hidden;
+    text-transform: uppercase;
 }
 
 #call-to-action:before {
