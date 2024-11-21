@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact</title>
+    <!-- Include your CSS files -->
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="shortcut icon" href="/pics/favicon.ico" type="image/x-icon" />
+    <style>
+        .booking-container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .booking-container h1,
+        .booking-container p {
+            color: #7bd2bd;
+            padding: 6px;
+        }
+
+        .booking-iframe {
+            width: 100%;
+            border: none;
+        }
+
+        @media screen and (max-width: 480px) {
+            .booking-iframe {
+                height: 1100px;
+            }
+        }
+
+        @media screen and (min-width: 481px) and (max-width: 767px) {
+            .booking-iframe {
+                height: 990px;
+            }
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+            .booking-iframe {
+                height: 920px;
+            }
+        }
+
+        @media screen and (min-width: 1025px) {
+            .booking-iframe {
+                height: 850px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <%- include('partials/header') %>
+        <section style="padding-top: 100px" class="contact-form-section">
+            <div class="booking-container">
+                <h1 class="contact-form-heading">Book a consultation with us</h1>
+                <p>Feel free to email us at <a style="color: #ffffff;"
+                        href="mailto:contact@intellectif.com">contact@intellectif.com</a> in case you have any
+                    questions.
+                </p>
+
+                <iframe class="booking-iframe"
+                    src="https://intellectifllc1.zohobookings.com/portal-embed#/4687677000000042016"
+                    allowfullscreen></iframe>
+            </div>
+        </section>
+        <%- include('partials/footer') %>
+
+            <!-- Include intl-tel-input JS -->
+            <script src="/js/main.js"></script>
+</body>
+
+</html>

@@ -282,6 +282,7 @@ a,
 #call-to-action:hover {
     color: #8defd7;
     filter: drop-shadow(0 0 1px #8defd7) drop-shadow(0 0 1px #05162c);
+    transform: scale(0.96);
 }
 
 #call-to-action:hover:before {

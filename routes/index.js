@@ -77,7 +77,7 @@ router.get("/privacy", (req, res) => res.render("privacy"));
 router.get("/solutions", (req, res) => res.render("solutions"));
 router.get("/dashboard", (req, res) => res.render("dashboard"));
 router.get("/contact", (req, res) => res.render("contact"));
-router.get("/input", (req, res) => res.render("input"));
+router.get("/bookings", (req, res) => res.render("bookings"));
 
 // Logout route
 router.get("/logout", (req, res) => {
