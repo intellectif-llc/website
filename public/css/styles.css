@@ -184,11 +184,81 @@ a,
 }
 
 .menu-item {
-    margin: 0 10px;
-    display: flex;
-    gap: 3%;
-    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    position: relative;
+    line-height: 30px;
+    height: 30px;
+    text-align: center;
+    color: #6bddc1;
     font-size: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0px 0.6rem;
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+}
+
+.menu-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background-color: #6bddc1;
+    transition: all 0.5s;
+}
+
+.menu-item:hover:before {
+    left: 0;
+}
+
+.menu-item::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background-color: #6bddc1;
+    transition: all 0.5s;
+}
+
+.menu-item:hover:after {
+    right: 0;
+}
+
+.menu-link-item::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background-color: #6bddc1;
+    transition: all 0.5s;
+}
+
+.menu-item:hover .menu-link-item::before {
+    top: 0;
+}
+
+.menu-link-item::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background-color: #6bddc1;
+    transition: all 0.5s;
+}
+
+.menu-item:hover .menu-link-item::after {
+    bottom: 0;
 }
 
 /* first section */
@@ -249,7 +319,7 @@ a,
 }
 
 #call-to-action {
-    padding: 1.5rem 1rem;
+    /* padding: 1.5rem 1rem; */
     color: #6bdcc0;
     font-size: 1.2rem;
     font-weight: 700;
@@ -258,10 +328,13 @@ a,
     border-radius: 5px;
     box-shadow: 0 0 5px #051028;
     cursor: pointer;
-    max-width: 300px;
+    max-width: 260px;
     transition: all 0.5s;
     position: relative;
     overflow: hidden;
+    line-height: 60px;
+    height: 60px;
+    width: 90%;
     text-transform: uppercase;
 }
 

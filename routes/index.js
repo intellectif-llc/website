@@ -78,6 +78,7 @@ router.get("/solutions", (req, res) => res.render("solutions"));
 router.get("/dashboard", (req, res) => res.render("dashboard"));
 router.get("/contact", (req, res) => res.render("contact"));
 router.get("/bookings", (req, res) => res.render("bookings"));
+router.get("/test", (req, res) => res.render("test"));
 
 // Logout route
 router.get("/logout", (req, res) => {
