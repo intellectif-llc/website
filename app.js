@@ -12,10 +12,10 @@ import rateLimit from "express-rate-limit"; // Import express-rate-limit
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-console.log("Views directory path:", path.join(__dirname, "views"));
-
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+app.set("trust proxy", 1);
 
 // Set 'views' directory for any views
 app.set("views", path.join(__dirname, "views"));
@@ -40,10 +40,33 @@ app.use(
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // Limit each IP to 100 requests per windowMs
+  max: 12, // Limit each IP to 12 requests per windowMs
   message: "Too many requests from this IP, please try again later.",
   standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
   legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+  handler: (req, res, next) => {
+    // Log IP address when rate limit is exceeded
+    const clientIp = req.ip || req.connection.remoteAddress;
+
+    // Append the blocked IP to a log file
+    const logMessage = `[${new Date().toISOString()}] - Rate limit exceeded for IP: ${clientIp}\n`;
+    fs.appendFile(
+      path.join(__dirname, "rate-limit-logs.txt"),
+      logMessage,
+      (err) => {
+        if (err) {
+          console.error("Error logging rate limit violation:", err);
+        } else {
+          console.log(`Rate limit violation logged for IP: ${clientIp}`);
+        }
+      }
+    );
+
+    // Send response
+    res
+      .status(429)
+      .send("Too many requests from this IP, please try again later.");
+  },
 });
 
 app.use(limiter);
