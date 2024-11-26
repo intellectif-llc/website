@@ -111,7 +111,57 @@ router.post("/contact", async (req, res) => {
       levelOfInterest, */
       subject,
       message,
+      "g-recaptcha-response": recaptchaToken, // Extract reCAPTCHA token
     } = req.body;
+
+    // Validate reCAPTCHA token
+    if (!recaptchaToken) {
+      console.error("Validation error: Missing reCAPTCHA token.");
+      return res.status(400).send("Please complete the reCAPTCHA validation.");
+    }
+
+    const recaptchaSecretKey = process.env.RECAPTCHA_SECRET_KEY;
+
+    // Verify the reCAPTCHA token with Google
+    try {
+      const recaptchaResponse = await axios.post(
+        `https://www.google.com/recaptcha/api/siteverify`,
+        null,
+        {
+          params: {
+            secret: recaptchaSecretKey,
+            response: recaptchaToken,
+          },
+        }
+      );
+
+      console.log("reCAPTCHA Response:", recaptchaResponse.data); // Debugging log to see the response from Google
+
+      // Check if the reCAPTCHA verification was successful
+      if (!recaptchaResponse.data.success) {
+        console.error("Validation error: reCAPTCHA verification failed.");
+        return res
+          .status(400)
+          .send("reCAPTCHA validation failed. Please try again.");
+      }
+
+      // Check if the score is below the threshold
+      if (recaptchaResponse.data.score < 0.5) {
+        console.error(
+          `Validation error: reCAPTCHA score too low. Score: ${recaptchaResponse.data.score}`
+        );
+        return res
+          .status(400)
+          .send(
+            "Your reCAPTCHA score is too low, indicating suspicious activity. Please try again."
+          );
+      }
+    } catch (error) {
+      console.error("Error verifying reCAPTCHA:", error);
+      return res
+        .status(500)
+        .send("There was an error verifying reCAPTCHA. Please try again.");
+    }
 
     // Validate required fields
     if (

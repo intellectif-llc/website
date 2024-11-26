@@ -13,6 +13,8 @@
     <!-- Include intl-tel-input CSS -->
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css" />
+    <script src="https://www.google.com/recaptcha/api.js?render=6LdWJooqAAAAAJ42Vm-QkzkrXQOmEg-XZn4IVESd"></script>
+
     <style>
         .contact-form-section {
             min-height: 75vh;
@@ -309,6 +311,34 @@
                         label.style.transform = 'translateY(-50%)';
                     }
                 });
+
+                /* recaptcha verification */
+
+                document.querySelector(".contact-form").addEventListener("submit", function (e) {
+                    e.preventDefault(); // Prevent default form submission until reCAPTCHA is verified
+
+                    // Execute reCAPTCHA
+                    grecaptcha.ready(function () {
+                        grecaptcha.execute('6LdWJooqAAAAAJ42Vm-QkzkrXQOmEg-XZn4IVESd', { action: 'contact_form' })
+                            .then(function (token) {
+                                // Add the reCAPTCHA token to the form as a hidden input
+                                const recaptchaInput = document.createElement('input');
+                                recaptchaInput.setAttribute('type', 'hidden');
+                                recaptchaInput.setAttribute('name', 'g-recaptcha-response');
+                                recaptchaInput.setAttribute('value', token);
+                                document.querySelector('.contact-form').appendChild(recaptchaInput);
+
+                                // Now submit the form
+                                document.querySelector('.contact-form').submit();
+                            })
+                            .catch(function (error) {
+                                console.error('Error executing reCAPTCHA', error);
+                                alert('There was an issue with reCAPTCHA. Please try again.');
+                            });
+                    });
+                });
+
+
             </script>
             <script src="/js/main.js"></script>
 </body>
