@@ -6,6 +6,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import session from "express-session";
 import indexRoutes from "./routes/index.js";
+import fs from "fs";
 import rateLimit from "express-rate-limit"; // Import express-rate-limit
 
 // Resolve __dirname for ES Modules
@@ -28,15 +29,14 @@ app.use(express.static(path.join(__dirname, "public")));
 // Middleware to parse request bodies
 app.use(express.urlencoded({ extended: false }));
 
-// Session management
-app.use(
-  session({
-    secret: process.env.SESSION_SECRET, // Use a strong secret key in production
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false }, // Set to true if using HTTPS
-  })
-);
+function getClientIp(req) {
+  // X-Forwarded-For can contain a list of IP addresses, the first one is the client's IP.
+  const forwarded = req.headers["x-forwarded-for"];
+  if (forwarded) {
+    return forwarded.split(",")[0].trim();
+  }
+  return req.connection.remoteAddress;
+}
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
@@ -45,8 +45,7 @@ const limiter = rateLimit({
   standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
   legacyHeaders: false, // Disable the `X-RateLimit-*` headers
   handler: (req, res, next) => {
-    // Log IP address when rate limit is exceeded
-    const clientIp = req.ip || req.connection.remoteAddress;
+    const clientIp = req.ip;
 
     // Append the blocked IP to a log file
     const logMessage = `[${new Date().toISOString()}] - Rate limit exceeded for IP: ${clientIp}\n`;
@@ -70,6 +69,16 @@ const limiter = rateLimit({
 });
 
 app.use(limiter);
+
+// Session management
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET, // Use a strong secret key in production
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false }, // Set to true if using HTTPS
+  })
+);
 
 // Define a route to render the index.ejs view
 app.get("/", (req, res) => {
