@@ -30,10 +30,11 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: false }));
 
 function getClientIp(req) {
-  // X-Forwarded-For can contain a list of IP addresses, the first one is the client's IP.
-  const forwarded = req.headers["x-forwarded-for"];
-  if (forwarded) {
-    return forwarded.split(",")[0].trim();
+  // Cloudflare provides the original client IP in the 'cf-connecting-ip' header
+  const clientIp =
+    req.headers["cf-connecting-ip"] || req.headers["x-forwarded-for"];
+  if (clientIp) {
+    return clientIp.split(",")[0].trim();
   }
   return req.connection.remoteAddress;
 }
@@ -76,7 +77,7 @@ app.use(
     secret: process.env.SESSION_SECRET, // Use a strong secret key in production
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false }, // Set to true if using HTTPS
+    cookie: { secure: true },
   })
 );
 
